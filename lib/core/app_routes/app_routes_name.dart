@@ -2,7 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 
-import '../../features/notes/notes_view.dart';
+import '../../views/notes/notes_view.dart';
+
 
 class AppRoutesName {
   AppRoutesName._();
