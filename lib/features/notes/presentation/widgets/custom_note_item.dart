@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/core/app_routes/app_routes_name.dart';
 
-import '../../../core/utils/space_widget.dart';
+import '../../../../core/utils/space_widget.dart';
+
 
 class CustomNoteItem extends StatelessWidget {
   const CustomNoteItem({super.key});

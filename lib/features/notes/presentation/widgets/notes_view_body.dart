@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/notes/widgets/notes_list_view.dart';
+import 'package:notes_app/features/notes/presentation/widgets/notes_list_view.dart';
 
-import '../../../core/utils/space_widget.dart';
-import '../../../core/widgets/custom_app_bar.dart';
+import '../../../../core/utils/space_widget.dart';
+import '../../../../core/widgets/custom_app_bar.dart';
+
+
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});

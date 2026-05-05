@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../core/utils/space_widget.dart';
+import '../../../../core/utils/space_widget.dart';
 import 'custom_note_item.dart';
 
 class NotesListView extends StatelessWidget {

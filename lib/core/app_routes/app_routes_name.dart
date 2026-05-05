@@ -1,9 +1,9 @@
 
 
 import 'package:flutter/cupertino.dart';
-import 'package:notes_app/views/edit_notes/edit_notes_view.dart';
 
-import '../../views/notes/notes_view.dart';
+import '../../features/edit_notes/presentation/views/edit_notes_view.dart';
+import '../../features/notes/presentation/views/notes_view.dart';
 
 
 class AppRoutesName {
