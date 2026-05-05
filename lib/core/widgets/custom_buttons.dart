@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/core/theme/app_colors.dart';
 
 import '../utils/size_config.dart';
 
@@ -15,16 +16,16 @@ class CustomGeneralButtons extends StatelessWidget {
         width: SizeConfig.screenWidth,
         height: 60,
         decoration: BoxDecoration(
-          color: Colors.green,
+          color: AppColors.MainColor,
           borderRadius:  BorderRadius.circular(10)
 
         ),
         child: Center(
           child: Text(title,
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-            fontWeight: FontWeight.w500
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold
           ),
             textAlign: TextAlign.left,
           ),

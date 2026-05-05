@@ -1,18 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final int? lineCunt;
-  final TextInputType? inputType;
   final ValueSetter? onChanged;
   final Widget? suffixIcon;
   final String? title;
 
   const CustomTextFormField({
     super.key,
-    required this.inputType,
     this.onChanged,
     this.suffixIcon,
     required this.title,
@@ -22,10 +19,9 @@ class CustomTextFormField extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       cursorColor: AppColors.MainColor,
       onChanged: onChanged,
-      keyboardType: inputType,
       maxLines: lineCunt,
       decoration: InputDecoration(
         // بدل hintText هنستخدم labelText
@@ -46,7 +42,7 @@ class CustomTextFormField extends StatelessWidget {
   OutlineInputBorder buildBorder([color]) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
-      borderSide: BorderSide(color: color ?? Colors.grey),
+      borderSide: BorderSide(color: color ?? Colors.grey,width: 1.5),
     );
   }
 }
