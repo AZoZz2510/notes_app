@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/core/utils/space_widget.dart';
+import 'package:notes_app/core/widgets/custom_buttons.dart';
+import 'package:notes_app/core/widgets/custom_text_field.dart';
+import 'package:notes_app/views/notes/widgets/add_node_bottom_sheet.dart';
 import 'package:notes_app/views/notes/widgets/notes_view_body.dart';
 
 import '../../core/utils/size_config.dart';
@@ -12,7 +16,11 @@ class NotesView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            showModalBottomSheet(context: context, builder: (context){
+              return AddNodeBottomSheet();
+            });
+          },
           child:Icon(Icons.add),
         ),
         body: NotesViewBody(),
@@ -20,3 +28,5 @@ class NotesView extends StatelessWidget {
     );
   }
 }
+
+
