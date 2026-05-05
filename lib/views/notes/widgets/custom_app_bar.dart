@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/core/utils/size_config.dart';
 import 'package:notes_app/views/notes/widgets/custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {

@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/notes/widgets/custom_note_item.dart';
+import 'package:notes_app/views/notes/widgets/notes_list_view.dart';
 
+import '../../../core/utils/space_widget.dart';
 import 'custom_app_bar.dart';
 
 class NotesViewBody extends StatelessWidget {
@@ -11,12 +12,17 @@ class NotesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(20),
-      child: Column(
+      child: // في ملف NotesViewBody
+      Column(
         children: [
-          CustomAppBar(),
-          CustomNoteItem()
+          const CustomAppBar(),
+          const VerticalSpace(2), // مسافة بسيطة بين البار والليست
+          Expanded(
+            child: const NotesListView(), // الـ Expanded هنا هي اللي هتحل المشكلة
+          ),
         ],
-      ),
+      )
     );
   }
 }
+

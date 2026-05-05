@@ -12,11 +12,9 @@ class NotesView extends StatelessWidget {
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
+        body:
             NotesViewBody(),
-          ],
-        )
+
       
       ),
     );
