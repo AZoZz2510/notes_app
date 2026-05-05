@@ -3,7 +3,6 @@ import 'package:notes_app/views/notes/widgets/notes_view_body.dart';
 
 import '../../core/utils/size_config.dart';
 
-
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
 
@@ -12,10 +11,11 @@ class NotesView extends StatelessWidget {
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
-        body:
-            NotesViewBody(),
-
-      
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child:Icon(Icons.add),
+        ),
+        body: NotesViewBody(),
       ),
     );
   }
