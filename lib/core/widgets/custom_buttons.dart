@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/core/theme/app_colors.dart';
+import 'package:notes_app/core/constant/app_colors.dart';
 
 import '../utils/size_config.dart';
 
@@ -16,7 +16,7 @@ class CustomGeneralButtons extends StatelessWidget {
         width: SizeConfig.screenWidth,
         height: 60,
         decoration: BoxDecoration(
-          color: AppColors.MainColor,
+          color: kMainColor,
           borderRadius:  BorderRadius.circular(10)
 
         ),

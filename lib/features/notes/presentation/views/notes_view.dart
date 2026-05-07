@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/core/theme/app_colors.dart';
+import 'package:notes_app/core/constant/app_colors.dart';
 
 import 'package:notes_app/features/notes/presentation/widgets/add_node_bottom_sheet.dart';
 import 'package:notes_app/features/notes/presentation/widgets/notes_view_body.dart';
@@ -15,7 +15,7 @@ class NotesView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColors.MainColor,
+          backgroundColor: kMainColor,
           onPressed: () {
             showModalBottomSheet(context: context, builder: (context){
               return AddNodeBottomSheet();
