@@ -2,23 +2,23 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
 @immutable
-sealed class NotesState extends Equatable {
+sealed class AddNotesState extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
 }
 
-final class NotesInitial extends NotesState {
+final class AddNotesInitial extends AddNotesState {
 
 }
 
-final class NotesLoading extends NotesState {}
+final class AddNotesLoading extends AddNotesState {}
 
-final class NotesSuccess extends NotesState {}
+final class AddNotesSuccess extends AddNotesState {}
 
-final class NotesFailure extends NotesState {
+final class AddNotesFailure extends AddNotesState {
   final String errorMessage;
-  NotesFailure(this.errorMessage);
+  AddNotesFailure(this.errorMessage);
   @override
   // TODO: implement props
   List<Object?> get props => [errorMessage];

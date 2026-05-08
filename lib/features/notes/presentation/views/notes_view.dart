@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/core/constant/app_colors.dart';
+import 'package:notes_app/core/constant/constant.dart';
 
 import 'package:notes_app/features/notes/presentation/widgets/add_node_bottom_sheet.dart';
 import 'package:notes_app/features/notes/presentation/widgets/notes_view_body.dart';
