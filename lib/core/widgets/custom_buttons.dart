@@ -6,7 +6,8 @@ import '../utils/size_config.dart';
 class CustomGeneralButtons extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
-  const CustomGeneralButtons({super.key, required this.title,required this.onPressed});
+  final bool isLoading;
+  const CustomGeneralButtons({super.key, required this.title,required this.onPressed, this.isLoading=false});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class CustomGeneralButtons extends StatelessWidget {
 
         ),
         child: Center(
-          child: Text(title,
+          child:isLoading ?CircularProgressIndicator(color: Colors.black,): Text(title,
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,

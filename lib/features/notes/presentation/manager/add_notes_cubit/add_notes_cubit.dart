@@ -8,17 +8,15 @@ import '../../../../../core/constant/constant.dart';
 class AddNotesCubit extends Cubit<AddNotesState>{
   AddNotesCubit():super(AddNotesInitial());
 
-  void AddNote(NotesModel note)async
-   {
-     emit(AddNotesLoading());
-     try{
-       var notesBox=Hive.box<NotesModel>(kNotesBox);
-       await notesBox.add(note);
-       emit(AddNotesSuccess());
-
-     }catch(e){
-       emit(AddNotesFailure(e.toString()));
-     }
-
+  addNote(NotesModel note) async {
+    emit(AddNotesLoading());
+    try {
+      var notesBox = Hive.box<NotesModel>(kNotesBox);
+      await notesBox.add(note);
+      await Future.delayed(const Duration(seconds: 1)); // هيخلي الدائرة تظهر لمدة ثانية
+      emit(AddNotesSuccess());
+    } catch (e) {
+      emit(AddNotesFailure(e.toString()));
+    }
   }
 }
