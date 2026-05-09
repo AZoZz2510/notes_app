@@ -16,6 +16,7 @@ class NotesViewBody extends StatelessWidget {
       child: // في ملف NotesViewBody
       Column(
         children: [
+          VerticalSpace(2),
           const CustomAppBar(title: "Notes", icon: Icons.search,),
           const VerticalSpace(2), // مسافة بسيطة بين البار والليست
           Expanded(

@@ -6,7 +6,6 @@ import 'package:notes_app/core/constant/constant.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
 
 import 'features/notes/data/notes_model.dart';
-import 'features/notes/presentation/manager/add_notes_cubit/add_notes_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

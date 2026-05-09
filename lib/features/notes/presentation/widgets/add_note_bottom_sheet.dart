@@ -25,10 +25,12 @@ class AddNoteBottomSheet extends StatelessWidget {
          builder: (BuildContext context, AddNotesState state) {
           return AbsorbPointer(
             absorbing:state is AddNotesLoading ?true:false ,//بتمنع التعامل ف التكست فيلد عشان اليوزر ميخدش اي اكشنت اثناء اللودينج
-            child: const SingleChildScrollView(
+            child: SingleChildScrollView(
               child: Padding(
-                padding:  EdgeInsets.all(16),
-                child: AddNoteForm(),
+                padding:  EdgeInsets.only(right: 16,left: 16,top: 10,
+                  bottom: MediaQuery.of(context).viewInsets.bottom
+                ),
+                child: const AddNoteForm(),
               ),
             ),
           );

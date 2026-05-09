@@ -12,19 +12,20 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return SafeArea(
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: kMainColor,
-          onPressed: () {
-            showModalBottomSheet(context: context, builder: (context){
-              return AddNoteBottomSheet();
-            });
-          },
-          child:Icon(Icons.add,color: Colors.black,),
-        ),
-        body: NotesViewBody(),
+    return Scaffold(
+      resizeToAvoidBottomInset: true, // تأكد إنها true
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: kMainColor,
+        onPressed: () {
+          showModalBottomSheet(
+            isScrollControlled: true,
+              context: context, builder: (context){
+            return AddNoteBottomSheet();
+          });
+        },
+        child:Icon(Icons.add,color: Colors.black,),
       ),
+      body: NotesViewBody(),
     );
   }
 }
