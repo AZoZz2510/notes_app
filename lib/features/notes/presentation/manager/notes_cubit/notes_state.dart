@@ -13,19 +13,5 @@ final class NotesInitial extends NotesState {
 
 }
 
-final class NotesLoading extends NotesState {}
 
-final class NotesSuccess extends NotesState {
- final List<NotesModel>notes;
 
-  NotesSuccess(this.notes);
-
-}
-
-final class NotesFailure extends NotesState {
-  final String errorMessage;
-  NotesFailure(this.errorMessage);
-  @override
-  // TODO: implement props
-  List<Object?> get props => [errorMessage];
-}

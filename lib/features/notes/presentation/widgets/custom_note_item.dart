@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/core/app_routes/app_routes_name.dart';
+import 'package:notes_app/features/notes/data/notes_model.dart';
 
 import '../../../../core/utils/space_widget.dart';
 
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key});
+  final NotesModel note;
+  const CustomNoteItem({super.key, required this.note});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class CustomNoteItem extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 24,bottom: 24,left: 16),
         decoration: BoxDecoration(
-          color: Color(0xffffcc80),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -25,7 +27,7 @@ class CustomNoteItem extends StatelessWidget {
           children: [
             ListTile(
               title: Text(
-                "Flutter tips",
+                note.title,
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -35,12 +37,14 @@ class CustomNoteItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16,bottom: 16),
                 child: Text(
-                  "Build your career with abdelaziz shaban ",
+                  note.subTitle,
                   style: TextStyle(fontSize: 18, color: Colors.black54),
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                },
                 icon: FaIcon(FontAwesomeIcons.trash, color: Colors.black, size: 30),
               ),
             ),
@@ -48,7 +52,7 @@ class CustomNoteItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Text(
-                "May 21,2026",
+                note.date,
                 style: TextStyle(fontSize: 14, color: Colors.black54),
               ),
             ),
