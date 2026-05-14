@@ -6,6 +6,7 @@ import 'package:notes_app/core/constant/constant.dart';
 import 'package:notes_app/simple_bloc_observer.dart';
 
 import 'features/notes/data/notes_model.dart';
+import 'features/notes/presentation/manager/notes_cubit/notes_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,11 +23,14 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
-      initialRoute: AppRoutesName.notes,
-      routes: Routes.routes,
+    return BlocProvider(
+      create: (context) => NotesCubit()..fetchAllNotes(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
+        initialRoute: AppRoutesName.notes,
+        routes: Routes.routes,
+      ),
     );
   }
 }

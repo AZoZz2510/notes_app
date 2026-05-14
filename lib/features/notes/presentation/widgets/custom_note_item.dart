@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/core/app_routes/app_routes_name.dart';
+import 'package:notes_app/features/edit_notes/presentation/views/edit_notes_view.dart';
 import 'package:notes_app/features/notes/data/notes_model.dart';
 
 import '../../../../core/utils/space_widget.dart';
+import '../manager/notes_cubit/notes_cubit.dart';
 
 
 class CustomNoteItem extends StatelessWidget {
@@ -12,9 +15,12 @@ class CustomNoteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return
+      InkWell(
       onTap: (){
-        Navigator.pushNamed(context, AppRoutesName.editNotes);
+        Navigator.push(context,MaterialPageRoute(builder:  (context){
+          return EditNotesView(note:note);
+        }) );
       },
       child: Container(
         padding: EdgeInsets.only(top: 24,bottom: 24,left: 16),
@@ -28,6 +34,8 @@ class CustomNoteItem extends StatelessWidget {
             ListTile(
               title: Text(
                 note.title,
+                maxLines: 1,
+                overflow:TextOverflow.ellipsis ,
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -38,12 +46,15 @@ class CustomNoteItem extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 16,bottom: 16),
                 child: Text(
                   note.subTitle,
+                  maxLines: 2,
+                  overflow:TextOverflow.ellipsis ,
                   style: TextStyle(fontSize: 18, color: Colors.black54),
                 ),
               ),
               trailing: IconButton(
                 onPressed: () {
                   note.delete();
+                  BlocProvider.of<NotesCubit>(context).fetchAllNotes(); // تحديث الشاشة فوراً
                 },
                 icon: FaIcon(FontAwesomeIcons.trash, color: Colors.black, size: 30),
               ),

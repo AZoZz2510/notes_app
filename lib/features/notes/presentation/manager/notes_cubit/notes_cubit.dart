@@ -5,17 +5,17 @@ import 'package:notes_app/features/notes/presentation/manager/notes_cubit/notes_
 import '../../../../../core/constant/constant.dart';
 import '../../../data/notes_model.dart';
 
-class NotesCubit extends Cubit<NotesState>{
-  NotesCubit():super(NotesInitial());
+class NotesCubit extends Cubit<NotesState> {
+  NotesCubit() : super(NotesInitial());
 
-List<NotesModel>? notes;
-  void fetchAllNotes(){
+  List<NotesModel>? notes;
+  void fetchAllNotes() {
+    var notesBox = Hive.box<NotesModel>(kNotesBox);
+    emit(NotesInitial());
+    // بدلاً من map، استخدمنا List.from عشان نضمن إننا بنبعت نسخة جديدة تماماً من العناصر
+    notes = List.from(notesBox.values);
 
-      var notesBox = Hive.box<NotesModel>(kNotesBox);
-      notes =notesBox.values.toList();
-
+    // هنا بنعمل emit لحالة جديدة تماماً
+    emit(NotesUpdated(notes!));
   }
-
-
-
 }

@@ -14,4 +14,11 @@ final class NotesInitial extends NotesState {
 }
 
 
+class NotesUpdated extends NotesState {
+  final List<NotesModel> notes;
 
+  NotesUpdated(this.notes);
+
+  @override
+  List<Object?> get props => [notes];
+}

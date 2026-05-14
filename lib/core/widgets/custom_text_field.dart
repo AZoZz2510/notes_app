@@ -15,7 +15,8 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     required this.title,
     this.lineCunt=1,
-    this.onSaved
+
+    this.onSaved,
   });
 
 

@@ -18,7 +18,7 @@ class Routes{
   Routes._();
   static  Map<String,Widget Function(BuildContext)> routes= {
     AppRoutesName.notes:(_)=>const NotesView(),
-    AppRoutesName.editNotes:(_)=>const EditNotesView(),
+    //AppRoutesName.editNotes:(_)=>const EditNotesView(note: null,),
 
 
 

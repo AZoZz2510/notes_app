@@ -16,10 +16,10 @@ class NotesViewBody extends StatelessWidget {
         Column(
           children: [
             VerticalSpace(2),
-            const CustomAppBar(title: "Notes", icon: Icons.search,),
+            CustomAppBar(title: "Notes", icon: Icons.search, onPressed: () { },),
             const VerticalSpace(2), // مسافة بسيطة بين البار والليست
             Expanded(
-              child: const NotesListView(), // الـ Expanded هنا هي اللي هتحل المشكلة
+              child:  NotesListView(), // الـ Expanded هنا هي اللي هتحل المشكلة
             ),
           ],
         )

@@ -33,7 +33,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             title: 'Title',
             onSaved: (value) {
               title = value;
-            },
+            } ,
           ),
           VerticalSpace(2),
           CustomTextFormField(
