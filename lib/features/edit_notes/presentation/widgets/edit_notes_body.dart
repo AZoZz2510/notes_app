@@ -17,6 +17,28 @@ class EditNotesBody extends StatefulWidget {
 
 class _EditNotesBodyState extends State<EditNotesBody> {
   String? title, subTitle;
+
+  // بنعرفهم late عادي
+  late TextEditingController titleController;
+  late TextEditingController contentController;
+
+  @override
+  void initState() {
+    super.initState();
+    // الخطوة دي هي اللي كانت ناقصة ومسببة الشاشة الحمراء
+    // بنملا الكنترولر بالبيانات اللي جاية من الـ note الحالية
+    titleController = TextEditingController(text: widget.note.title);
+    contentController = TextEditingController(text: widget.note.subTitle);
+  }
+
+  @override
+  void dispose() {
+    // مهم جداً نقفلهم عشان ميسحبوش رامات على الفاضي
+    titleController.dispose();
+    contentController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,27 +46,34 @@ class _EditNotesBodyState extends State<EditNotesBody> {
       child: Column(
         children: [
           CustomAppBar(
-            title: 'Edit Node',
+            title: 'Edit Note',
             icon: Icons.check,
             onPressed: () {
+              // بنعدل البيانات في الـ model
               widget.note.title = title ?? widget.note.title;
               widget.note.subTitle = subTitle ?? widget.note.subTitle;
-              widget.note.save();
-              BlocProvider.of<NotesCubit>(context).fetchAllNotes(); // تحديث الشاشة فوراً
-              Navigator.pop(context);
 
+              // بنحفظ في Hive
+              widget.note.save();
+
+              // بنحدث الـ UI عن طريق الـ Cubit
+              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+
+              Navigator.pop(context);
             },
           ),
-          VerticalSpace(5),
+          const VerticalSpace(5),
           CustomTextFormField(
-            title: widget.note.title,
+            controller: titleController,
+            title: 'Title', // خلي العنوان ثابت كـ Label
             onChanged: (value) {
               title = value;
             },
           ),
-          VerticalSpace(2),
+          const VerticalSpace(2),
           CustomTextFormField(
-            title: widget.note.subTitle,
+            controller: contentController,
+            title: 'Content',
             lineCunt: 7,
             onChanged: (value) {
               subTitle = value;

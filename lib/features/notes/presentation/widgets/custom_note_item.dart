@@ -46,7 +46,7 @@ class CustomNoteItem extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 16,bottom: 16),
                 child: Text(
                   note.subTitle,
-                  maxLines: 2,
+                  maxLines: 3,
                   overflow:TextOverflow.ellipsis ,
                   style: TextStyle(fontSize: 18, color: Colors.black54),
                 ),

@@ -8,6 +8,7 @@ import 'package:notes_app/features/notes/presentation/manager/add_notes_cubit/ad
 import '../../../../core/utils/space_widget.dart';
 import '../../../../core/widgets/custom_buttons.dart';
 import '../../../../core/widgets/custom_text_field.dart';
+import 'colors_list_view.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
@@ -43,6 +44,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subTitle = value;
             },
           ),
+          VerticalSpace(2),
+          ColorsListView(),
           VerticalSpace(2),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
