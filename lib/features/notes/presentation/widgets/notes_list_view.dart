@@ -15,19 +15,25 @@ class NotesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
-        List<NotesModel> notes = BlocProvider.of<NotesCubit>(context).notes! ;        return Padding(
+        List<NotesModel> notes = [];
+        if (state is NotesUpdated) {
+          notes = state.notes; // "notes" هنا بنفس الاسم اللي في الـ State عندك
+        } else {
+          // لو لسه في البداية، ممكن نجيب الداتا الأساسية
+          notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
+        }        return Padding(
           padding: const EdgeInsets.only(bottom: 16),
           child: ListView.separated(
             physics: BouncingScrollPhysics(),
             padding: EdgeInsets.zero,
             // ضيف السطر ده
             itemBuilder: (context, index) {
-              return  CustomNoteItem(note: notes[index],);
+              return CustomNoteItem(note: notes[index]);
             },
             separatorBuilder: (context, index) {
               return const VerticalSpace(1);
             },
-            itemCount:notes.length
+            itemCount: notes.length,
           ),
         );
       },
