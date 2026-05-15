@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:notes_app/features/notes/data/notes_model.dart';
@@ -5,15 +7,20 @@ import 'package:notes_app/features/notes/presentation/manager/add_notes_cubit/ad
 
 import '../../../../../core/constant/constant.dart';
 
-class AddNotesCubit extends Cubit<AddNotesState>{
-  AddNotesCubit():super(AddNotesInitial());
 
-  addNote(NotesModel note) async {
+class AddNotesCubit extends Cubit<AddNotesState> {
+  AddNotesCubit() : super(AddNotesInitial());
+  Color color=Color(0xffFF7400);
+
+  void addNote(NotesModel note) async {
+    note.color=color.value;
     emit(AddNotesLoading());
     try {
       var notesBox = Hive.box<NotesModel>(kNotesBox);
       await notesBox.add(note);
-      await Future.delayed(const Duration(seconds: 1)); // هيخلي الدائرة تظهر لمدة ثانية
+      await Future.delayed(
+        const Duration(seconds: 1),
+      ); // هيخلي الدائرة تظهر لمدة ثانية
       emit(AddNotesSuccess());
     } catch (e) {
       emit(AddNotesFailure(e.toString()));
